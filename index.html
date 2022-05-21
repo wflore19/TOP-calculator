@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Calculator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <script src="javascript.js" async defer></script>
+    </head>
+    <body>
+        <div id="mainContainer">
+            
+            <table class="numbers">
+                <tr>
+                    <div id="display"></div>
+                </tr>
+                <tr class="row">
+                    <!--ID to the buttons for heirarchy-->
+                    <td><button id="allClear" class="number, gray">AC</button></td>
+                    <td><button id="positiveNegative" class="number, gray">+/-</button></td>
+                    <td><button id="percent" class="number, gray">%</button></td>
+                    <td><button id="divide" class="number, orange">/</button></td>
+                </tr>
+                <tr class="row">
+                    <td><button id="seven" lass="number, center">7</button></td>
+                    <td><button id="eight" class="number, center">8</button></td>
+                    <td><button id="nine" class="number, center">9</button></td>
+                    <td><button id="multiply" class="number, orange">x</button></td>
+                </tr>
+                <tr class="row">
+                    <td><button id="four" class="number, center">4</button></td>
+                    <td><button id="five" class="number, center">5</button></td>
+                    <td><button id="six" class="number, center">6</button></td>
+                    <td><button id="minus" class="number, orange">-</button></td>
+                </tr>
+                <tr class="row">
+                    <td><button id="one" class="number, center">1</button></td>
+                    <td><button id="two" class="number, center">2</button></td>
+                    <td><button id="three" class="number, center">3</button></td>
+                    <td><button id="addition" class="number, orange">+</button></td>
+                </tr>
+                <tr>
+                    <!--colspan cell takes two spots-->
+                    <td colspan="2"><button id="zero" class="number, center">0</button></td> 
+                    <td><button id="dot" class="number, center">.</button></td>
+                    <td><button id="equal" class="number, orange">=</button></td>
+                </tr>
+            </table>
+    </body>
+</html>
