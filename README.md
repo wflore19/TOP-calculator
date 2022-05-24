@@ -6,19 +6,24 @@ buttons, operators
     row
     cells
 
+input: keyboard, buttons
+processor: functions, arrays
+output: display
+power source: my willingness to finish this project and not give up when I hit a wall and my ability to not get distracted
 
+calculator logic:
+1.button is pushed
+2.figure out the value of the button that was pushed
+3.display the value of the button that was pushed
+4.if more buttons are pushed, add them on the display as well
+5.continue doing this until an operator button is pressed
+6.do something different
+7.store the number on the display into a memory called register
+8.wipe the display and wait for another button to be pushed
+9.enter the second number as before
+10.store new number into a new register
+11.finally when you hit the '=' button, calculate the contents of the two registers and display the result
 
-css:
-background black
-colored buttons inspired by iphone calculator
+display logic:
 
-
-javascript:
-when a button is pressed, for example "2", it sends a signal to another component, the display, creating a circuit between them. 
-Next, another a button is pressed, "+" operator, the first input '2' gets stored, the addition function is signaled, and the calculator is ready for a new input.
-You press '2' again, this number gets stored
-Finally you press '=' operator, now the calculator has the go ahead to execute the previous '+' addition function
-adding the first '2' you entered, and the second '2' you entered
-THE LOGIC GATES
-in order for the function to execute, it must pass through the logic GATES
-the logic gate acts as a barrier in a calculator, it takes two inputs, compares them and sends out a new output based on what it finds.
+numbers are just symbols
