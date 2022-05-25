@@ -24,6 +24,7 @@ calculator logic:
 10.store new number into a new register
 11.finally when you hit the '=' button, calculate the contents of the two registers and display the result
 
-display logic:
-
 numbers are just symbols
+
+html elements are created using dom methods in .js file
+'.' decimal button after used
