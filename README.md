@@ -17,7 +17,7 @@ calculator logic:
 3.display the value of the button that was pushed
 4.if more buttons are pushed, add them on the display as well
 5.continue doing this until an operator button is pressed
-6.do something different
+6.operator button is pushed
 7.store the number on the display into a memory called register
 8.wipe the display and wait for another button to be pushed
 9.enter the second number as before

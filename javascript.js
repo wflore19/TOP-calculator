@@ -1,27 +1,31 @@
-let prevNum;
-let currNum;
-let processor;
-let output;
+//global storage semantics
+let prevNum = null;
+let currNum = null;
+let prevOper = null;
+let currOper = null;
+let answer = null;
+let displayValue = null;
 
-const operators = ['/', 'x', '-', '+', '=', '.', '+/-', 'ac', 'c'];
+//body, container, display divs
 const body = document.querySelector('body');
 const container = document.querySelector('#container');
 const display = document.createElement('div');
 display.id = 'display';
-display.textContent = '';
+display.textContent = displayValue;
 body.insertBefore(display, container);
 
-
-let n = 0;
+//create number buttons
+let num = 0;
 for (let i = 0; i < 10; i++) {
     const numbers = document.createElement('button');
-    numbers.className = n;
+    numbers.className = num;
     numbers.id = 'button';
-    numbers.textContent = n;
+    numbers.textContent = num;
     container.appendChild(numbers);
-    n += 1;
+    num += 1;
 }
-
+//create operator buttons
+const operators = ['/', 'x', '-', '+', '=', '.', '+/-', 'ac', 'c'];
 for (let j = 0; j < 9; j++) {
     const operator = document.createElement('button');
     operator.className = operators[j];
@@ -30,79 +34,76 @@ for (let j = 0; j < 9; j++) {
     container.appendChild(operator);
 }
 
+//click event for every button
 const button = Array.from(document.querySelectorAll('#button'));
 for (let k of button) {
     k.addEventListener('click', () => {
         switch (k.textContent) {
             case '+':
-                processor = '+';
-                prevNum = display.textContent;
+                prevOper = '+';
+                prevNum = Number(display.textContent);
+                display.textContent = null;
                 break;
             case '-':
-                processor = '-';
-                prevNum = display.textContent;
+                prevOper = '-';
+                prevNum = Number(display.textContent);
+                display.textContent = null;
                 break;
             case 'x':
-                processor = 'x';
-                prevNum = display.textContent;
+                prevOper = 'x';
+                prevNum = Number(display.textContent);
+                display.textContent = null;
                 break;
             case '/':
-                processor = '/';
-                prevNum = display.textContent;
+                prevOper = '/';
+                prevNum = Number(display.textContent);
+                display.textContent = null;
                 break;
             case 'ac':
-                display.textContent = '';
-                processor = '';
-                prevNum = '';
-                currNum = '';
+                display.textContent = null;
+                prevOper = null;
+                currOper = null;
+                prevNum = null;
+                currNum = null;
+                answer = null;
                 break;
             case 'c':
                 display.textContent = display.textContent.slice(0, -1);
                 break;
+            case '=':
+                display.textContent = operate(prevNum, currNum, prevOper);
+                break;
             /* case '+/-':
-                display.textContent = display.textContent.push('-');
+                display.textContent = negate(Number(display.textContent));
                 break; */
             default:
                 display.textContent += k.textContent;
+                if (prevOper != null && prevNum != null) {
+                    currNum = Number(display.textContent);
+                } 
         }
     });   
 }
 
-
-
-
-
-function addition(a, b) {
-    return a + b;
-}
-
-function subtraction(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a,b) {
-    return a / b;
-}
-
+//procedures
 function operate(a, b, operator) {
-    let result;
     switch(operator) {
         case '+':
-            result = addition(a, b);
+            answer = a + b;
             break;
         case '-':
-            result = subtraction(a, b);
+            answer = a - b;
             break;
         case 'x':
-            result = multiply(a, b);
+            answer = a * b;
             break;
         case '/':
-            result = divide(a, b);
+            answer = a / b;
             break;
     }
-    return result;
+    return answer;
+}
+
+function negate(a) {
+    return a * -1; 
 }
